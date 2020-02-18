@@ -2,17 +2,17 @@
 
 ## Creating a virtual enviroment to work in
 
-`virtualenv "project name"`
+```virtualenv django_env```
 
 ### Activating on a MAc
 
-`source .django_env/bin/activate`
+`source django_env/bin/activate`
 
 ### Acitivating on Windows
 
 `source .django_env/Scripts/activate`
 
-### Install requirments is requirement file is available
+### Install requirements if requirement file is available
 
 `pip install -r requirements.txt`
 
