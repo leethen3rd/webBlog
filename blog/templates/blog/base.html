@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -12,6 +13,10 @@
       src="https://kit.fontawesome.com/1880a57c5b.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -20,12 +25,14 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}" />
 
     <title>Personal Blog</title>
   </head>
   <body>
     <!-- Header with Navbar -->
-    <div class="jumbotron text-center bg-white" style="margin-bottom:0">
+    <div class="jumbotron bg-white" id="mainHeader" style="margin-bottom:0">
       <h1>Personal Blog</h1>
       <p>A responsive site built with Django</p>
     </div>
@@ -61,8 +68,8 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item m-1">
-            <a class="nav-link" href="#"
-              ><i class="far fa-user fa-lg"></i> Login</a
+            <a class="nav-link" href="/admin"
+              ><i class="far fa-user fa-lg"></i>&nbsp &nbsp Login</a
             >
           </li>
           <span class="navbar-text m-1">
@@ -74,8 +81,32 @@
         </ul>
       </div>
     </nav>
-
-    {% block content %} {% endblock %}
+    <!-- End Header and NavBar -->
+    <!-- Place Holder -->
+    <div class="container">I am not here</div>
+    <!-- End Place Holder -->
+    <!-- Latest Blog -->
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %}{% endblock %}
+        </div>
+        <!-- Side Bar -->
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
