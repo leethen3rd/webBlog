@@ -5,11 +5,6 @@
 #mainHeader p {
   font-family: 'Roboto', sans-serif;
 }
-body {
-  background: #fafafa;
-  color: #333333;
-  margin-top: 5rem;
-}
 
 .content-section {
   background: #ffffff;
