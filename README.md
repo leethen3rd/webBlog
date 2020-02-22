@@ -2,11 +2,11 @@
 
 ## Creating a virtual enviroment to work in
 
-```virtualenv django_env```
+`virtualenv django_env`
 
 ### Activating on a MAc
 
-`source django_env/bin/activate`
+`source .django_env/bin/activate`
 
 ### Acitivating on Windows
 
@@ -457,6 +457,12 @@ These work the same as loops. Code blocks will look like this:
 
 {% endif %}
 ```
+
 # Template Inheritance
+
 Template inheritance is used to reduce the same code being written for multiple templates. A good example of this is the header and nav bar sections of a website. <br>
-A base.html file can be used to solve this problem. 
+A base.html file can be used to solve this problem.
+
+# Admin Page
+
+python manage.py makemigrations

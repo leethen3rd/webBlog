@@ -67,28 +67,42 @@
         id="collapsibleNavbar"
       >
         <ul class="navbar-nav">
+          {% if user.is_authenticated %}
           <li class="nav-item m-1">
-            <a class="nav-link" href="{% url 'admin:index' %}"
-              ><i class="far fa-user fa-lg"></i>&nbsp &nbsp Login</a
-            >
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
           </li>
-          <span class="navbar-text m-1">
-            |
-          </span>
+          <span class="navbar-text m-1">|</span>
           <li class="nav-item m-1">
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+
+          {% else %}
+          <li class="nav-item m-1">
+            <a class="nav-link" href="{% url 'login' %}"><i class="far fa-user fa-lg"></i>&nbsp &nbsp Login</a>
+          </li>
+          <span class="navbar-text m-1">|</span>
+          <li class="nav-item m-1">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
           </li>
         </ul>
+          {% endif %}
       </div>
     </nav>
     <!-- End Header and NavBar -->
     <!-- Place Holder -->
-    <div class="container">I am not here</div>
+
     <!-- End Place Holder -->
     <!-- Latest Blog -->
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
           {% block content %}{% endblock %}
         </div>
         <!-- Side Bar -->
